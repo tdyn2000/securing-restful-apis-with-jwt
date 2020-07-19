@@ -2,6 +2,10 @@ var express = require('express');
 var app = express();
 var db = require('./db');
 global.__root   = __dirname + '/'; 
+var morgan = require('morgan');
+var logger = morgan('combined');
+
+app.use(logger);
 
 app.get('/api', function (req, res) {
   res.status(200).send('API works.');
